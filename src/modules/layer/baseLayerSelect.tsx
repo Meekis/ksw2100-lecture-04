@@ -64,7 +64,7 @@ fetch(
 });
 
 const arctic = new TileLayer();
-fetch("/kws2100-kartbaserte-websystemer/wmts/arctic-sdi.xml").then(
+fetch("/kws2100-lecture-04/wmts/arctic-sdi.xml").then(
     async function (response) {
         const result = parser.read(await response.text());
         const options = optionsFromCapabilities(result, {
@@ -121,20 +121,9 @@ export function BaseLayerSelect({
         [stadiaLayer],
     );
     const selectedLayer = useMemo(
-        () => layerOptions[selectedLayerValue],
         () => layerOptions[selectedLayerValue].layer,
         [layerOptions, selectedLayerValue],
     );
-    useEffect(() => {
-        setBaseLayer(selectedLayer.layer);
-        const projection = selectedLayer.layer.getSource()?.getProjection();
-        if (projection) {
-            setView(
-                (v) =>
-                    new View({ center: v.getCenter(), zoom: v.getZoom(), projection }),
-            );
-        }
-    }, [selectedLayer]);
     useEffect(() => setBaseLayer(selectedLayer), [selectedLayer]);
     return (
         <select
@@ -150,5 +139,4 @@ export function BaseLayerSelect({
             ))}
         </select>
     );
-}
 }

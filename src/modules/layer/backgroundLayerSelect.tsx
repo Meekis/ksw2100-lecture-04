@@ -66,7 +66,7 @@ fetch(
     });
 
 const arcticLayer = new TileLayer();
-fetch("/kws2100-kartbaserte-websystemer/wmts/arctic-sdi.xml")
+fetch("/kws2100-lecture-04/public/wmts/arctic-sdi.xml")
     .then(function (response) {
         return response.text();
     })

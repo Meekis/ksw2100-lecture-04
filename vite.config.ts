@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: "/kws2100-kartbaserte-websystemer",
+    base: "/ksw2100-lecture-04", //Skal være navnet på mitt repositotie på gitHub
 });
